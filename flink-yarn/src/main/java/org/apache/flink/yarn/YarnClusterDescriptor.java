@@ -1035,6 +1035,7 @@ public class YarnClusterDescriptor implements ClusterDescriptor<ApplicationId> {
         try {
             tmpConfigurationFile = File.createTempFile(appId + "-flink-conf.yaml", null);
 
+            LOG.info("charles test tmpConfigurationFile: "+  tmpConfigurationFile.toPath());
             // remove localhost bind hosts as they render production clusters unusable
             removeLocalhostBindHostSetting(configuration, JobManagerOptions.BIND_HOST);
             removeLocalhostBindHostSetting(configuration, TaskManagerOptions.BIND_HOST);
@@ -1053,9 +1054,9 @@ public class YarnClusterDescriptor implements ClusterDescriptor<ApplicationId> {
                     true);
             classPathBuilder.append("flink-conf.yaml").append(File.pathSeparator);
         } finally {
-            if (tmpConfigurationFile != null && !tmpConfigurationFile.delete()) {
+//            if (tmpConfigurationFile != null && !tmpConfigurationFile.delete()) {
                 LOG.warn("Fail to delete temporary file {}.", tmpConfigurationFile.toPath());
-            }
+//            }
         }
 
         if (userJarInclusion == YarnConfigOptions.UserJarInclusion.LAST) {

@@ -71,7 +71,7 @@ public final class BlobClient implements Closeable {
     /**
      * Instantiates a new BLOB client.
      *
-     * @param serverAddress the network address of the BLOB server
+     * @param serverAddress
      * @param clientConfig additional configuration like SSL parameters required to connect to the
      *     blob server
      * @throws IOException thrown if the connection to the BLOB server could not be established
